@@ -5,30 +5,45 @@ namespace Linear_Equation_Solver
     public class Matrix
     {
         //Note for a 2D Array [rows , columns]
-        public string[] Variables { get; set; } = new string[] { "x", "y", "z" };
-        public double[,] Multipliers { get; set; } = new double[,] { { 1, -2, 1 }, { 3, 4, -1 } };  //{ { 1, 1, -1, 9 }, { 0, 1, 3, 3 }, { -1, 0, -2, 2 } };
+        public string[] Variables { get; private set; } = new string[] { "x", "y", "z" };
+        public double[,] Multipliers { get; private set; } = new double[,] { { 1, 1, -1, 9 }, { 0, 1, 3, 3 }, { -1, 0, -2, 2 } }; //{ { 1, -2, 1 }, { 3, 4, -1 } };  
 
-        public int Multipliers_Columns { get; set; } 
-        public int Multipliers_Rows { get; set; }
+        public int Multipliers_Columns { get; private set; } 
+        public int Multipliers_Rows { get; private set; }
 
         public Matrix()
         {
             Multipliers_Rows = Multipliers.GetLength(0);
             Multipliers_Columns = Multipliers.GetLength(1);
         }
+
+        public Matrix(string[] variables, double[,] multipliers)
+            :this()//note calls the base constructor
+        {
+            Multipliers = multipliers;
+            Variables = variables; 
+            
+        }
+
+        //output the answers
+        public void Output()
+        {
+            Console.WriteLine();
+        }
+
         public void RREF()
         {
             const double tolerance = 0.00001;//if it's greater than to the tolerance it means it's not the number if it's less it means it's close enough to it
             double row_divider = 0;
-            double row_multiplier = 0;
+            
 
-            //note i'm using column as a row because it's forming the identity matrix
-            for(int column = 0; column < Multipliers_Columns; column++)
+            //note i'm using column as a row when reading from the 2d array because it's forming the identity matrix
+            for(int column = 0; column < Multipliers_Columns - 1; column++)
             {
                 //check if the pivot number is a 0
                 if(Abs_Compare(Multipliers[column,column], 0) < tolerance)
                 {
-                    //go through the column below the pivot
+                    //go through the column below the pivot number
                     for(int row = column + 1; row < Multipliers_Rows; row++)
                     {
                         //check to see that it's not a 0
@@ -46,23 +61,46 @@ namespace Linear_Equation_Solver
                             }
 
                             //clean out the rest of the column
-
-                            //break out of the column
+                            Column_Cleaner(column, column);
+                            //break out of the row 
+                            row = Multipliers_Rows;
                         }
                     }
                 }
-                //check if the pivot number is a 1
-                if(Abs_Compare(Multipliers[column, column], 0) < tolerance)
-                {
 
+                //check if the pivot number is a 1
+                else if(Abs_Compare(Multipliers[column, column], 0) < tolerance)
+                {
+                    //set the rest of the numbers in the column to 0
+                    Column_Cleaner(column, column);
                 }
+
                 //otherwise it's neither
                 else
                 {
-
+                    //divide the row by the non pivot number
+                    row_divider = Multipliers[column, column];
+                    Row_Divide(column, row_divider);
+                    //clean out the rest of the column
+                    Column_Cleaner(column, column);
                 }
             }
             
+        }
+
+        //function to set the rest of the columns numbers to 0
+        private void Column_Cleaner(int subtracting_row, int column)
+        {
+            //go through all the rows in that column
+            for(int row = 0; row < Multipliers_Rows; row++)
+            {
+                //check if it's not the safe row
+                if(row != subtracting_row)
+                {
+                    //subtract the multiple of the safe row from the current row
+                    Row_Subtract(subtracting_row, Multipliers[row, column], row);
+                }
+            }
         }
 
         //Function to trade rows
@@ -88,6 +126,7 @@ namespace Linear_Equation_Solver
             }
         }
 
+        //function to divide a row by a number
         private void Row_Divide(int row, double row_Divider)
         {
             //starting from the left go to the right dividing by the row divider in that particular row
@@ -97,6 +136,7 @@ namespace Linear_Equation_Solver
             }
         }
 
+        //function to subtract a multiple of one row from another
         private void Row_Subtract(int subtracting_Row, double row_Multiplier, int row_To_Subtract_From)
         {
             for(int column = 0; column< Multipliers_Columns; column++)
@@ -105,6 +145,7 @@ namespace Linear_Equation_Solver
             }
         }
 
+        //function to compare the abs difference between two doubles
         private double Abs_Compare(double comparer_1, double comparer_2)
         {
             return Math.Abs(comparer_1 - comparer_2);
