@@ -18,7 +18,7 @@ namespace Linear_Equation_Solver
         }
 
         public Matrix(string[] variables, double[,] multipliers)
-            :this()//note calls the base constructor
+            :this()//note - this calls the base constructor
         {
             Multipliers = multipliers;
             Variables = variables; 
@@ -28,7 +28,12 @@ namespace Linear_Equation_Solver
         //output the answers
         public void Output()
         {
-            Console.WriteLine();
+            //go through the rows
+            for(int row = 0; row <Multipliers_Rows; row++)
+            {
+                Console.WriteLine("{0}: {1}", Variables[row], Multipliers[row, Multipliers_Columns-1]);
+            }
+            
         }
 
         public void RREF()
