@@ -7,7 +7,7 @@ namespace Linear_Equation_Solver
         static void Main(string[] args)
         {
             var matrix = new Matrix();
-            
+            matrix.RREF();
         }
     }
 }
