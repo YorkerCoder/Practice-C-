@@ -13,17 +13,13 @@ namespace Non_Linear_Equation_Solver
         public double Coefficient { get; set; }
         public double Exponent { get; set; }
 
+        //returns the value of the function element at the current point
         public double Value(double variable_value)
         {
             return Coefficient * Math.Pow(variable_value, Exponent);
 
         }
 
-        public double First_Derivative(double variable_value)
-        {
-            
-            return Exponent * Coefficient * Math.Pow(variable_value, (Exponent - 1));
-        }
 
         
     }

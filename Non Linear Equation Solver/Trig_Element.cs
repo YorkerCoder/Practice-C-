@@ -3,13 +3,30 @@ namespace Non_Linear_Equation_Solver
 {
     public enum Trig { sin, cos, tan, sinh, cosh, tanh }
 
+
     public class Trig_Element 
     {
-        public Trig_Element(double coefficient, double exponent, Trig trig_type)
+        //Both coefficient and exponent are 1
+        public Trig_Element(Trig trig_type)
+        {
+            Trig_Type = trig_type;
+            Coefficient = 1;
+            Exponent = 1;
+
+        }
+
+        //Only exponent is 1
+        public Trig_Element(Trig trig_type, double coefficient)
+            :this(trig_type)//calls the single parameter constructor
         {
             Coefficient = coefficient;
+        }
+
+        //Both exponent and coefficient aren't 1
+        public Trig_Element(Trig trig_type, double coefficient, double exponent)
+            :this(trig_type, coefficient)//calls the double parameter constructor
+        {
             Exponent = exponent;
-            Trig_Type = trig_type;
         }
 
         public enum Trig { sin, cos, tan, sinh, cosh, tanh }
@@ -21,83 +38,26 @@ namespace Non_Linear_Equation_Solver
         //gets the value of the function element at the current point
         public double Value(double variable_value, Trig trig_type)
         {
-            //check if it's sin
-            if (trig_type == Trig.sin)
+            switch(trig_type)
             {
-                return Coefficient * Math.Pow(Math.Sin(variable_value), Exponent);
-            }
-
-            //check if it's cos
-            else if(trig_type == Trig.cos)
-            {
-                return Coefficient * Math.Pow(Math.Cos(variable_value), Exponent);
-            }
-
-            //check if it's tan
-            else if(trig_type == Trig.tan)
-            {
-                return Coefficient * Math.Pow(Math.Tan(variable_value), Exponent);
-            }
-
-            //check if it's sinh
-            else if(trig_type == Trig.sinh)
-            {
-                return Coefficient * Math.Pow(Math.Sinh(variable_value), Exponent);
-            }
-
-            //check if it's cosh
-            else if (trig_type == Trig.cosh)
-            {
-                return Coefficient * Math.Pow(Math.Cosh(variable_value), Exponent);
-            }
-
-            //otherwise it's tanh
-            else
-            {
-                return Coefficient * Math.Pow(Math.Tanh(variable_value), Exponent);
+                case Trig.sin:
+                    return Coefficient * Math.Pow(Math.Sin(variable_value), Exponent);
+                case Trig.cos:
+                    return Coefficient * Math.Pow(Math.Cos(variable_value), Exponent);
+                case Trig.tan:
+                    return Coefficient * Math.Pow(Math.Tan(variable_value), Exponent);
+                case Trig.sinh:
+                    return Coefficient * Math.Pow(Math.Sinh(variable_value), Exponent);
+                case Trig.cosh:
+                    return Coefficient * Math.Pow(Math.Cosh(variable_value), Exponent);
+                case Trig.tanh:
+                    return Coefficient * Math.Pow(Math.Tanh(variable_value), Exponent);
+                default:
+                    throw new Exception("No valid trig enum was passed to the Value function");
             }
         }
 
 
-        //gets the value of the first derivative
-        public double Sin_First_Derivative(double variable_value, Trig trig_type)
-        {
-            //check if it's sin
-            if (trig_type == Trig.sin)
-            {
-                return Coefficient * Math.Pow(Math.Sin(variable_value), Exponent);
-            }
 
-            //check if it's cos
-            else if (trig_type == Trig.cos)
-            {
-                return Coefficient * Math.Pow(Math.Cos(variable_value), Exponent);
-            }
-
-            //check if it's tan
-            else if (trig_type == Trig.tan)
-            {
-                return Coefficient * Math.Pow(Math.Tan(variable_value), Exponent);
-            }
-
-            //check if it's sinh
-            else if (trig_type == Trig.sinh)
-            {
-                return Coefficient * Math.Pow(Math.Sinh(variable_value), Exponent);
-            }
-
-            //check if it's cosh
-            else if (trig_type == Trig.cosh)
-            {
-                return Coefficient * Math.Pow(Math.Cosh(variable_value), Exponent);
-            }
-
-            //otherwise it's tanh
-            else
-            {
-                return Coefficient * Math.Pow(Math.Tanh(variable_value), Exponent);
-            }
-
-        }
     }
 }
