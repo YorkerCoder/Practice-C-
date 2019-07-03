@@ -1,0 +1,11 @@
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\bin\Debug\netcoreapp2.1\Non Linear Equation Solver.deps.json
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\bin\Debug\netcoreapp2.1\Non Linear Equation Solver.runtimeconfig.json
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\bin\Debug\netcoreapp2.1\Non Linear Equation Solver.runtimeconfig.dev.json
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\bin\Debug\netcoreapp2.1\Non Linear Equation Solver.dll
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\bin\Debug\netcoreapp2.1\Non Linear Equation Solver.pdb
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\obj\Debug\netcoreapp2.1\Non Linear Equation Solver.csprojAssemblyReference.cache
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\obj\Debug\netcoreapp2.1\Non Linear Equation Solver.csproj.CoreCompileInputs.cache
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\obj\Debug\netcoreapp2.1\Non Linear Equation Solver.AssemblyInfoInputs.cache
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\obj\Debug\netcoreapp2.1\Non Linear Equation Solver.AssemblyInfo.cs
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\obj\Debug\netcoreapp2.1\Non Linear Equation Solver.dll
+C:\Users\Emir Hadzic\source\repos\Non Linear Equation Solver\obj\Debug\netcoreapp2.1\Non Linear Equation Solver.pdb

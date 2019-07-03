@@ -1,26 +1,48 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Non_Linear_Equation_Solver
 {
-    //simple elements such as 3x^2 where 3 is the coefficient, x is the variable and 2 is the exponent
-    public class Common_Element 
+    public class Common_Element : IElement
     {
-        public Common_Element(double coefficient, double exponent)
+        private static double _h = 0.00000001;
+        private static List<double> _variables;//list of the values of variables shared between all common elements
+        
+
+        public List<double> Variables { get { return _variables; } set { _variables = value; } }
+        public int Variable { get; set; } //holds the place of where the variable is in the list
+        public double Value { get { return Evaluate(); } }
+        public double Partial_Derivative { get { return (Evaluate(_h) - Evaluate(-_h)) / (2 * _h); } }
+        public Operator LHS { get; }
+        public Operator RHS { get; }
+
+
+        public double Coefficient { get;}
+        public double Exponent { get;}
+
+
+        //Assign the Coefficient, Exponent, RHS and LHS operators, and the variable
+        public Common_Element(double coefficient, double exponent, Operator rhs, Operator lhs, int variable)
         {
             Coefficient = coefficient;
             Exponent = exponent;
+            RHS = rhs;
+            LHS = lhs;
+            Variable = variable;
+            
         }
 
-        public double Coefficient { get; set; }
-        public double Exponent { get; set; }
-
-        //returns the value of the function element at the current point
-        public double Value(double variable_value)
+        //evaluates the values of the element at the current variable value
+        private double Evaluate()
         {
-            return Coefficient * Math.Pow(variable_value, Exponent);
-
+            return Coefficient * Math.Pow(Variables[Variable], Exponent);
         }
 
+        //evaluates the elements value at a step (h) off the current variable value
+        private double Evaluate(double h)
+        {
 
-        
+            return Coefficient * Math.Pow(Variables[Variable] + h, Exponent);
+        }
     }
 }
