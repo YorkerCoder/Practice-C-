@@ -1,0 +1,11 @@
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\bin\Debug\netcoreapp2.1\Infix to Postfix Notation.deps.json
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\bin\Debug\netcoreapp2.1\Infix to Postfix Notation.runtimeconfig.json
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\bin\Debug\netcoreapp2.1\Infix to Postfix Notation.runtimeconfig.dev.json
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\bin\Debug\netcoreapp2.1\Infix to Postfix Notation.dll
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\bin\Debug\netcoreapp2.1\Infix to Postfix Notation.pdb
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\obj\Debug\netcoreapp2.1\Infix to Postfix Notation.csprojAssemblyReference.cache
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\obj\Debug\netcoreapp2.1\Infix to Postfix Notation.csproj.CoreCompileInputs.cache
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\obj\Debug\netcoreapp2.1\Infix to Postfix Notation.AssemblyInfoInputs.cache
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\obj\Debug\netcoreapp2.1\Infix to Postfix Notation.AssemblyInfo.cs
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\obj\Debug\netcoreapp2.1\Infix to Postfix Notation.dll
+C:\Users\Emir Hadzic\source\repos\Infix to Postfix Notation\obj\Debug\netcoreapp2.1\Infix to Postfix Notation.pdb
